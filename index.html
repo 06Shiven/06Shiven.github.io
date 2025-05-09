@@ -26,14 +26,51 @@
   
   <style>
 
-    .page {
-      padding-left: 220px; /* adjust to match sidebar width */
-    }
-
-
     html {
       zoom: 0.9;
     }
+  
+    .page {
+      padding: 40px 30px 40px 220px; /* adds space for sidebar */
+    }
+  
+    .btn-outline-info {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: 1px solid #0ff;
+      color: #0ff;
+      background-color: transparent;
+      transition: all 0.3s ease;
+    }
+  
+    .btn-outline-info i {
+      margin-right: 8px;
+    }
+  
+    .btn-outline-info:hover {
+      background-color: #0ff;
+      color: #000;
+    }
+  
+    .back-btn {
+      background-color: #1e1e1e;
+      border: none;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+      transition: background-color 0.3s ease;
+    }
+  
+    .back-btn:hover {
+      background-color: #333;
+    }
+    
     .skill {
       margin-bottom: 25px;
     }
