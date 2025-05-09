@@ -31,7 +31,7 @@
     }
   
     .page {
-      padding: 60px 30px 40px 220px; /* adds space for sidebar and increases top padding */
+      padding: 60px 30px 40px 220px;
     }
   
     .btn-outline-info {
@@ -45,6 +45,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
   
     .btn-outline-info i {
@@ -77,9 +78,8 @@
   
     .resume-download {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+      justify-content: flex-start;
+      padding-left: 240px; /* aligns roughly above name */
       margin-bottom: 30px;
     }
   
@@ -98,6 +98,34 @@
       align-items: center;
       justify-content: center;
       font-size: 1.4rem;
+    }
+  
+    .projects .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  
+    .projects .card {
+      flex: 1 1 calc(50% - 30px);
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+  
+    .projects .card-img-top {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  
+    .projects .card-body {
+      padding: 20px;
+    }
+  
+    @media (max-width: 768px) {
+      .projects .card {
+        flex: 1 1 100%;
+      }
     }
     
     .skill {
