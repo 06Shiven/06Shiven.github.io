@@ -1,57 +1,50 @@
 {
   "particles": {
     "number": {
-      "value": 50,
-      "density": { "enable": true, "value_area": 1200 }
+      "value": 60,
+      "density": { "enable": true, "value_area": 800 }
     },
-    "color": { "value": "#00ffff" },
+    "color": { "value": "#00faff" },
     "shape": {
       "type": "char",
-      "character": {
-        "value": [
-          "<", ">", "/", "{", "}", "=", "==", "=>", "+", "-", "*", "%",
-          "if (x > y) {", "for (let i = 0; i++)", "console.log('Hello')",
-          "def func():", "return True", "while (true):", "<div class='card'>",
-          "System.out.println()", "#include <stdio.h>", "let total = sum(arr)",
-          "const", "async function()", "try {", "catch (e)", "</html>"
-        ],
-        "font": "monospace",
-        "style": "",
-        "weight": "400",
-        "fill": true
-      }
+      "character": [
+        {
+          "value": ["{", "}", "(", ")", "<", ">", "if", "else", "def", "for", "while", "return", "int", "float", "bool", "class", ";", "#", "λ", "->"],
+          "font": "monospace",
+          "style": "",
+          "weight": "400"
+        }
+      ]
     },
     "opacity": {
-      "value": 0.5,
-      "random": true,
-      "anim": { "enable": false }
+      "value": 0.6,
+      "random": true
     },
     "size": {
-      "value": 12,
-      "random": true,
-      "anim": { "enable": false }
+      "value": 14,
+      "random": true
     },
     "move": {
       "enable": true,
-      "speed": 1.5,
+      "speed": 2,
       "direction": "none",
-      "random": true,
+      "random": false,
       "straight": false,
       "out_mode": "out",
       "bounce": false
+    },
+    "line_linked": {
+      "enable": false
     }
   },
   "interactivity": {
+    "detect_on": "canvas",
     "events": {
       "onhover": { "enable": true, "mode": "repulse" },
-      "onclick": { "enable": false },
       "resize": true
     },
     "modes": {
-      "repulse": {
-        "distance": 100,
-        "duration": 0.4
-      }
+      "repulse": { "distance": 100, "duration": 0.4 }
     }
   },
   "retina_detect": true
