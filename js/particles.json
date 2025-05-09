@@ -19,7 +19,7 @@
           "int", "float", "bool", "String", "var", "let", "const",
           "#", "λ", "->", "//", "/* */", "=>"
         ],
-        "font": "monospace",
+        "font": "Fira Code",
         "style": "",
         "weight": "400"
       }
