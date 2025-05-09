@@ -25,7 +25,6 @@
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   
   <style>
-    
     html {
       zoom: 0.9;
     }
@@ -79,7 +78,7 @@
     .resume-download {
       display: flex;
       justify-content: flex-start;
-      padding-left: 240px; /* aligns roughly above name */
+      padding-left: 300px;
       margin-bottom: 30px;
     }
   
@@ -100,34 +99,44 @@
       font-size: 1.4rem;
     }
   
-    .projects .row {
+    #projects .row {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
     }
   
-    .projects .card {
+    #projects .col-md-6 {
       flex: 1 1 calc(50% - 30px);
+      display: flex;
+    }
+  
+    #projects .card {
       background-color: #1a1a1a;
       border: none;
       border-radius: 12px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
     }
   
-    .projects .card-img-top {
+    #projects .card-img-top {
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
   
-    .projects .card-body {
+    #projects .card-body {
       padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   
     @media (max-width: 768px) {
-      .projects .card {
+      #projects .col-md-6 {
         flex: 1 1 100%;
       }
     }
-    
     .skill {
       margin-bottom: 25px;
     }
