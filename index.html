@@ -22,7 +22,6 @@
 
 
   <style>
-
     canvas {
       font-family: 'Fira Code', monospace !important;
     }
@@ -445,23 +444,19 @@
     // Particles.js
     tsParticles.load("particles-js", {
       particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: "#00faff" },
+        number: {value: 60, density: {enable: true, value_area: 800}},
+        color: {value: "#00faff"},
         shape: {
           type: "char",
           character: {
-            value: [
-              "{", "}", "(", ")", "[", "]", "<", ">", ";", ":", ",", ".", "+", "-", "*", "/", "=", "==", "=>", "->",
-              "if", "else", "elif", "for", "while", "return", "def", "func", "int", "float", "char", "bool", "class", "new", 
-              "var", "let", "const", "void", "public", "private", "static", "null", "true", "false",
-              "&lt;div&gt;", "&lt;/div&gt;", "&lt;p&gt;", "&lt;/p&gt;", "&lt;a&gt;", "&lt;/a&gt;"
-            ],
+            value: ["{", "}", "(", ")", ";", "=", ">", "+", "-", "*", "/", "int", "if", "else", "return", "for", "while", "def", "class", "=>", "//"],
             font: "Fira Code",
             style: "",
             weight: "400"
-          },
-        opacity: { value: 0.6, random: true },
-        size: { value: 14, random: true },
+          }
+        },
+        opacity: {value: 0.6, random: true},
+        size: {value: 14, random: true},
         move: {
           enable: true,
           speed: 2,
@@ -471,16 +466,16 @@
           out_mode: "out",
           bounce: false
         },
-        line_linked: { enable: false }
+        line_linked: {enable: false}
       },
       interactivity: {
         detect_on: "canvas",
         events: {
-          onhover: { enable: true, mode: "repulse" },
+          onhover: {enable: true, mode: "repulse"},
           resize: true
         },
         modes: {
-          repulse: { distance: 100, duration: 0.4 }
+          repulse: {distance: 100, duration: 0.4}
         }
       },
       retina_detect: true
