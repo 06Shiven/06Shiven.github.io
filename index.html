@@ -25,13 +25,13 @@
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   
   <style>
-
+    
     html {
       zoom: 0.9;
     }
   
     .page {
-      padding: 40px 30px 40px 220px; /* adds space for sidebar */
+      padding: 60px 30px 40px 220px; /* adds space for sidebar and increases top padding */
     }
   
     .btn-outline-info {
@@ -42,6 +42,9 @@
       color: #0ff;
       background-color: transparent;
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
   
     .btn-outline-info i {
@@ -65,10 +68,34 @@
       gap: 8px;
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
       transition: background-color 0.3s ease;
+      margin-bottom: 30px;
     }
   
     .back-btn:hover {
       background-color: #333;
+    }
+  
+    .resume-download {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+  
+    .about-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+  
+    .about-social .btn-outline-light {
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
     }
     
     .skill {
@@ -441,7 +468,7 @@
       <button class="btn btn-dark back-btn"><i class="fas fa-arrow-left"></i> Back</button>
       <h2>Resume</h2>
 
-      <div class="my-4 text-center">
+     <div class="resume-download">
         <a href="resume/Shiven_Jaiswal_Resume.pdf" download class="btn btn-outline-info btn-lg">
           <i class="fas fa-download me-2"></i> Download Resume
         </a>
