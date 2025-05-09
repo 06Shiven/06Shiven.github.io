@@ -1,0 +1,65 @@
+.header-main {
+    left: 0!important
+}
+
+.blog-list .blog-list-container,.blog-page .blog-container,.pt-home .banner {
+    left: 10%!important
+}
+
+.pt-home .lang {
+    left: 11%!important
+}
+
+.pt-home .social {
+    right: 20px!important
+}
+
+.pt-about,.pt-blog,.pt-contact,.pt-portfolio,.pt-resume {
+    -webkit-transform: translateX(200%)!important;
+    -ms-transform: translateX(200%)!important;
+    transform: translateX(200%)!important
+}
+
+#about:target .pt-about,#blog:target .pt-blog,#contact:target .pt-contact,#portfolio:target .pt-portfolio,#resume:target .pt-resume {
+    -webkit-transform: translateX(11.1%)!important;
+    -ms-transform: translateX(11.1%)!important;
+    transform: translateX(11.1%)!important
+}
+
+.blog-page .blog-nav {
+    left: 55%!important
+}
+
+.header-mobile .header-toggle {
+    float: right
+}
+
+@media screen and (max-width: 768px) {
+    .header-main {
+        left:-135px!important
+    }
+
+    .blog-page .blog-container,.header-main.on {
+        left: 0!important
+    }
+
+    #about:target .pt-about,#blog:target .pt-blog,#contact:target .pt-contact,#portfolio:target .pt-portfolio,#resume:target .pt-resume {
+        -webkit-transform: translateX(0)!important;
+        -ms-transform: translateX(0)!important;
+        transform: translateX(0)!important
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .pt-home .banner {
+        left:0!important
+    }
+
+    .pt-home .lang {
+        left: 10px!important
+    }
+
+    .pt-home .social {
+        right: 10px!important
+    }
+}
