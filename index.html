@@ -450,12 +450,16 @@
         shape: {
           type: "char",
           character: {
-            value: ["{", "}", "(", ")", ";", "=", ">", "+", "-", "*", "/", "int", "if", "else", "return", "for", "while", "def", "class", "=>", "//"],
+            value: [
+              "{", "}", "(", ")", "[", "]", "<", ">", ";", ":", ",", ".", "+", "-", "*", "/", "=", "==", "=>", "->",
+              "if", "else", "elif", "for", "while", "return", "def", "func", "int", "float", "char", "bool", "class", "new", 
+              "var", "let", "const", "void", "public", "private", "static", "null", "true", "false",
+              "<div>", "<p>", "<a>", "</div>", "</p>", "</a>"
+            ],
             font: "Fira Code",
             style: "",
             weight: "400"
-          }
-        },
+          },
         opacity: { value: 0.6, random: true },
         size: { value: 14, random: true },
         move: {
