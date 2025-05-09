@@ -6,7 +6,7 @@
     },
     "color": { "value": "#00faff" },
     "shape": {
-      "type": "char",
+      "type": "character",
       "character": {
         "value": ["{", "}", "(", ")", ";", "=", ">", "if", "else", "return", "int", "float", "class", "#", "*", "bool", "void"],
         "font": "Fira Code",
