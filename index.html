@@ -1,143 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shiven Jaiswal</title>
   <link rel="icon" href="img/shiven-pfp.jpg" />
 
-  <!-- CSS Plugins via CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-q5i/Q9DO92P0As8e6eEieYtHXIfz34r+8i0ItRbEF0SUm8K0v2N9K3QKkFz1k+gj" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-houbkLoLMNciU..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.animatedheadline/1.0.0/css/jquery.animatedheadline.min.css" integrity="sha512-dXt8GDgYXv6mgMNR3O7NAl8iKMf6r7+KnGeVj7eE3MgJhI4vydU1rb9GE1tsJHdce49zL3G7zLVDXjJ4XKNbVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Local Custom Styles -->
-  <link rel="stylesheet" href="css/magnific-popup.min.css" />
-  <link rel="stylesheet" href="css/simplebar.min.css" />
-  <link rel="stylesheet" href="css/owl.carousel.min.css" />
-  <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style-dark.css" />
   <link rel="stylesheet" href="css/left-nav.min.css" />
   <link rel="stylesheet" href="css/green-color.min.css" />
   <link rel="stylesheet" href="css/circle-box.min.css" />
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tuxlegend/jquery.animatedheadline@master/dist/jquery.animatedheadline.css" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
   <style>
+    .skill {
+      margin-bottom: 25px;
+    }
+
+    .skill label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .skill-bar {
+      width: 100%;
+      background-color: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 20px;
+    }
+
+    .skill-bar .bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(to right, #00faff, #3fffd1);
+      transition: width 1.5s ease-in-out;
+      border-radius: 8px;
+    }
+
+    .page h3 {
+      font-weight: bold;
+    }
+
+    .page p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .page .btn-outline-light {
+      font-size: 1.2rem;
+      padding: 10px 14px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .page .btn-outline-light:hover {
+      transform: scale(1.1);
+      background-color: #00faff;
+      color: #000;
+    }
+
+    nav.header-main ul li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+      /* space between items */
+    }
+
+    nav.header-main ul li a {
+      font-size: 28px;
+      /* icon size */
+      color: #1e90ff;
+      /* or your preferred color */
+    }
+
+    nav.header-main ul li h6 {
+      font-size: 16px;
+      /* text size */
+      margin-top: 10px;
+      color: white;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+      background-color: #0a0a0a;
+    }
+
+    .pt-home {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url('img/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .pt-home section {
+      z-index: 1;
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    #typed-text-wrapper {
+      display: inline-block;
+      position: relative;
+      font-size: 1.5rem;
+    }
+
+    #typed-text-wrapper::after {
+      content: "";
+      position: absolute;
+      right: -4px;
+      top: 0;
+      width: 2px;
+      height: 1.5em;
+      background: white;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .social ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .social ul li a {
+      color: #0af;
+      font-size: 1.5rem;
+    }
+
+    .page {
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 10, 10, 0.97);
+      color: white;
+      overflow-y: auto;
+      z-index: 2;
+      transition: left 0.5s ease;
+    }
+
+    .page.active {
+      left: 0;
+    }
+
+    nav.header-main {
+      width: 200px;
+      background-color: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(6px);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 3;
+    }
+
+    nav.header-main .logo img {
+      width: 250px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+    }
+
+
+    nav.header-main ul {
+      padding-top: 5px;
+    }
+
+    nav.header-main ul li {
+      margin-bottom: 50px;
+      /* Increased spacing */
+    }
+
+    nav.header-main ul li a,
+    nav.header-main ul h6 {
+      transition: all 0.3s ease;
+      display: block;
+      text-align: center;
+    }
+
+    nav.header-main ul li a:hover {
+      transform: scale(1.2);
+      color: #00faff;
+    }
+
+    nav.header-main ul h6 {
+      font-size: 0.8rem;
+      margin-top: 5px;
+      color: white;
+      /* Matched name text */
+    }
+
+    nav.header-main ul h6:hover {
+      transform: translateX(4px);
+      color: #00faff;
+    }
+
     iframe {
       width: 100%;
       height: 600px;
       border: none;
       border-radius: 12px;
     }
+
     .photo img {
       border-radius: 16px;
       max-width: 100%;
     }
+
+    .header-mobile h2 {
+      display: none;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 220px;
+      /* Sidebar width (200px) + some padding */
+      z-index: 5;
+      display: none;
+    }
+
+    .page.active .back-btn {
+      display: inline-block;
+    }
+
+    .about-social .btn-outline-light {
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
   </style>
 </head>
+
 <body>
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="loading-area"><div class="circle"></div></div>
-    <div class="left-side"></div>
-    <div class="right-side"></div>
+
+  <!-- Navigation -->
+  <div class="header-mobile">
+    <a class="header-toggle"><i class="fas fa-bars"></i></a>
   </div>
 
-  <!-- Main Site -->
-  <div id="home">
-    <div class="header-mobile">
-      <a class="header-toggle"><i class="fas fa-bars"></i></a>
-      <h2>Shiven Jaiswal</h2>
+  <nav class="header-main" data-simplebar>
+    <div class="logo">
+      <img src="img/logo.png" alt="Shiven" />
     </div>
+    <ul>
+      <li><a href="#" data-target="home" class="icon-h fas fa-home"></a>
+        <h6>Home</h6>
+      </li>
+      <li><a href="#" data-target="about" class="icon-a fas fa-user-tie"></a>
+        <h6>About</h6>
+      </li>
+      <li><a href="#" data-target="resume" class="icon-r fas fa-address-book"></a>
+        <h6>Resume</h6>
+      </li>
+      <li><a href="#" data-target="projects" class="icon-p fas fa-code"></a>
+        <h6>Projects</h6>
+      </li>
+    </ul>
+    <div class="footer">
+      <p>© 2025 Shiven Jaiswal</p>
+    </div>
+  </nav>
 
-    <nav class="header-main" data-simplebar>
-      <div class="logo">
-        <img src="img/shiven-pfp.jpg" alt="Shiven" width="100" />
+  <!-- Home Section -->
+  <div class="pt-home" id="home">
+    <div id="particles-js"></div>
+    <section>
+      <h1>Shiven Jaiswal</h1>
+      <p>
+        <span id="typed-text-wrapper">
+          <span id="typed-text"></span>
+        </span>
+      </p>
+      <div class="social">
+        <ul>
+          <li><a href="https://www.linkedin.com/in/shiven-jaiswal/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </li>
+          <li><a href="https://github.com/06Shiven" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a href="https://www.instagram.com/shiven._/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://x.com/06Shiven" target="_blank"><i class="fab fa-x-twitter"></i></a></li>
+        </ul>
       </div>
-      <ul>
-        <li><a href="#home" class="icon-h fas fa-home"></a><h6>Home</h6></li>
-        <li><a href="#about" class="icon-a fas fa-user-tie"></a><h6>About</h6></li>
-        <li><a href="#resume" class="icon-r fas fa-address-book"></a><h6>Resume</h6></li>
-      </ul>
-    </nav>
+    </section>
+  </div>
 
-    <!-- Home Section -->
-    <div class="pt-home" style="background-image: url('img/shiven-pfp.jpg')">
-      <div id="particles-js"></div>
-      <section>
-        <div class="banner">
-          <h1>Shiven Jaiswal</h1>
-          <p class="cd-headline rotate-1">
-            <span class="cd-words-wrapper">
-              <b class="is-visible">Web & AI Developer</b>
-              <b>Engineering Student</b>
-              <b>Robotics Enthusiast</b>
-            </span>
+  <!-- About Section -->
+  <div class="page" id="about">
+    <section class="container py-5">
+      <button class="btn btn-dark back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+          <img src="img/shiven-pfp.jpg" alt="Shiven Jaiswal" class="rounded-circle img-fluid"
+            style="max-width: 250px;" />
+        </div>
+        <div class="col-md-8">
+          <h3>Shiven Jaiswal</h3>
+          <p><i class="fas fa-map-marker-alt text-primary"></i> Toronto, Canada</p>
+          <p>
+            I'm a 19-year-old engineering student with a passion for backend development, robotics, and AI systems.
+            I’ve interned at <strong>MR. STUDIOS</strong>, built custom real estate landing pages, integrated CRM tools,
+            and launched digital campaigns.
           </p>
-        </div>
-        <div class="social">
-          <ul>
-            <li><a href="https://www.linkedin.com/in/shiven-jaiswal/"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://github.com/06Shiven"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.instagram.com/shiven._/"><i class="fab fa-instagram"></i></a></li>
-          </ul>
-        </div>
-      </section>
-    </div>
+          <p>
+            <strong>Prev:</strong> Team Captain at <strong>Brampton Robotics</strong>; Four-time VEX Worlds Finalist;
+            Builder & Programmer; Core Contributor to autonomous systems.
+          </p>
+          <p>
+            <strong>Current:</strong> Exploring embedded AI projects and systems automation; Pursuing Web + AI dev
+            initiatives.
+          </p>
+          <p>
+            Reach out to me at <a href="mailto:Shivenjaiswal02@gmail.com"
+              class="text-info">Shivenjaiswal02@gmail.com</a>
+          </p>
+          <div class="mt-4 about-social d-flex flex-row">
+            <a href="https://www.linkedin.com/in/shiven-jaiswal/" target="_blank" class="btn btn-outline-light me-2">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/06Shiven" target="_blank" class="btn btn-outline-light me-2">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/shiven._/" target="_blank" class="btn btn-outline-light me-2">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/your_x_handle" target="_blank" class="btn btn-outline-light">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+          </div>
 
-    <!-- About Section -->
-    <div class="page pt-about" id="about" data-simplebar>
-      <section class="container">
-        <div class="header-page mt-70 mob-mt">
-          <h2>About Me</h2><span></span>
+
         </div>
-        <div class="row mt-100">
-          <div class="col-lg-3 col-sm-4">
-            <div class="photo">
-              <img src="img/shiven-pfp.jpg" alt="Shiven" />
+      </div>
+    </section>
+  </div>
+
+
+
+  <!-- Resume Section -->
+  <div class="page" id="resume">
+    <section class="container py-5">
+      <button class="btn btn-dark back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+      <h2>Resume</h2>
+
+      <div class="my-4 text-center">
+        <a href="resume/Shiven_Jaiswal_Resume.pdf" download class="btn btn-outline-info btn-lg">
+          <i class="fas fa-download me-2"></i> Download Resume
+        </a>
+      </div>
+
+      <div class="text-center">
+        <img src="resume/resume-image.jpg" alt="Shiven Jaiswal Resume" class="img-fluid rounded"
+          style="max-width: 100%; height: auto;" />
+      </div>
+    </section>
+  </div>
+
+
+  <!-- Projects Section -->
+  <div class="page" id="projects">
+    <section class="container py-5">
+      <button class="btn btn-dark back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+      <h2 class="mb-4">Projects</h2>
+
+      <div class="row">
+        <!-- Project Card 1 -->
+        <div class="col-md-6 mb-4">
+          <div class="card bg-dark text-white h-100">
+            <img src="img/jarvis.png" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">J.A.R.V.I.S</h5>
+              <p class="card-text">J.A.R.V.I.S is a desktop-based virtual assistant built with Python. It features voice
+                recognition, text-to-speech, task automation, and a dynamic visual interface with waveform animations.
+                The assistant can perform actions such as telling the time, launching applications, conducting web
+                searches, and more. Designed to explore the integration of speech and automation in user interfaces.</p>
+              <a href="https://github.com/06Shiven/J.A.R.V.I.S" target="_blank" class="btn btn-outline-light">
+                <i class="fab fa-github"></i> GitHub
+              </a>
             </div>
           </div>
-          <div class="col-lg-9 col-sm-8">
-            <h4>Shiven Jaiswal</h4>
-            <div class="loc"><i class="fas fa-map-marked-alt"></i> Toronto, Canada</div>
-            <p>
-              I'm Shiven, a passionate engineering student with experience in backend development, robotics, and AI. I've interned at MR. STUDIOS, built real estate landing pages, integrated CRM systems, and launched successful ad campaigns. I'm also a four-time VEX Robotics Worlds Finalist and former Team Captain at Brampton Robotics.
-            </p>
-            <p>
-              Reach out to me at <a href="mailto:Shivenjaiswal02@gmail.com">Shivenjaiswal02@gmail.com</a>
-            </p>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="col-md-6 mb-4">
+          <div class="card bg-dark text-white h-100">
+            <img src="img/DeepLearnAI.gif" alt="Project Demo" class="img-fluid rounded">
+            <div class="card-body">
+              <h5 class="card-title">Q-learning-Maze-Solver</h5>
+              <p class="card-text">A real‑time Q‑learning maze solver built with Python and Pygame. Generate perfect
+                mazes of any size, train multiple agents to find optimal paths, and visualize their learning with an
+                interactive GUI.</p>
+              <a href="https://github.com/06Shiven/Q-learning-Maze-Solver" target="_blank"
+                class="btn btn-outline-light">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
 
-    <!-- Resume Section -->
-    <div class="page pt-resume" id="resume" data-simplebar>
-      <section class="container">
-        <div class="header-page mt-70 mob-mt">
-          <h2>Resume</h2><span></span>
-        </div>
-        <div class="info box-1 mt-60">
-          <p>View or download my resume below:</p>
-          <iframe src="resume/Shiven_Jaiswal_Resume.pdf"></iframe>
-        </div>
-      </section>
-    </div>
+        <!-- Add more project cards as needed -->
+
+      </div>
+    </section>
   </div>
+
 
   <!-- Scripts -->
   <script src="js/jquery.min.js"></script>
-  <script src="js/isotope.pkgd.min.js"></script>
-  <script src="js/simplebar.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/jquery.animatedheadline.min.js"></script>
-  <script src="js/tilt.js"></script>
-  <script src="js/particles.min.js"></script>
-  <script src="js/main.js" type="module"></script>
+
   <script>
+    // Particles.js
     particlesJS.load('particles-js', 'js/particles.json', function () {
       console.log("particles.js loaded");
     });
+
+    // Typed.js
+    var typed = new Typed("#typed-text", {
+      strings: [
+        "Web & AI Developer",
+        "Engineering Student",
+        "Robotics Enthusiast",
+        "Systems Builder",
+        "Automation Enthusiast",
+        "Backend Developer"
+      ],
+      typeSpeed: 60,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true,
+      showCursor: false
+    });
+
+    // Navigation Logic
+    const links = document.querySelectorAll('[data-target]');
+    const pages = document.querySelectorAll('.page');
+    const backButtons = document.querySelectorAll('.back-btn');
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.getAttribute('data-target');
+        pages.forEach(p => p.classList.remove('active'));
+        if (target !== 'home') {
+          document.getElementById(target).classList.add('active');
+          document.body.style.overflow = 'auto';
+        } else {
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    backButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        pages.forEach(p => p.classList.remove('active'));
+        document.body.style.overflow = 'hidden';
+      });
+    });
   </script>
 </body>
+
 </html>
