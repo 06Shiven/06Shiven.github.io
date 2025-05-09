@@ -68,7 +68,7 @@
       gap: 8px;
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
       transition: background-color 0.3s ease;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
   
     .back-btn:hover {
@@ -77,15 +77,16 @@
   
     .resume-download {
       display: flex;
-      justify-content: flex-start;
-      padding-left: 300px;
+      justify-content: center;
       margin-bottom: 30px;
     }
   
     .about-social {
       display: flex;
-      gap: 15px;
-      margin-top: 20px;
+      flex-direction: row;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 25px;
     }
   
     .about-social .btn-outline-light {
@@ -99,68 +100,42 @@
       font-size: 1.4rem;
     }
   
-    #projects .row {
+    .projects .row {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 30px;
     }
   
-    #projects .col-md-6 {
-      flex: 1 1 calc(50% - 30px);
-      display: flex;
-    }
-  
-    #projects .card {
+    .projects .card {
+      flex: 0 1 45%;
       background-color: #1a1a1a;
       border: none;
       border-radius: 12px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
     }
   
-    #projects .card-img-top {
+    .projects .card-img-top {
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
   
-    #projects .card-body {
+    .projects .card-body {
       padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
   
     @media (max-width: 768px) {
-      #projects .col-md-6 {
+      .projects .row {
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .projects .card {
         flex: 1 1 100%;
       }
-    }
-    .skill {
-      margin-bottom: 25px;
-    }
-
-    .skill label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    .skill-bar {
-      width: 100%;
-      background-color: #222;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 20px;
-    }
-
-    .skill-bar .bar {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(to right, #00faff, #3fffd1);
-      transition: width 1.5s ease-in-out;
-      border-radius: 8px;
+  
+      .resume-download {
+        padding-left: 0;
+      }
     }
 
     .page h3 {
