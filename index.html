@@ -7,112 +7,89 @@
   <title>Shiven Jaiswal</title>
   <link rel="icon" href="img/shiven-pfp.jpg" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style-dark.css" />
-  <link rel="stylesheet" href="css/left-nav.min.css" />
-  <link rel="stylesheet" href="css/green-color.min.css" />
-  <link rel="stylesheet" href="css/circle-box.min.css" />
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- Bootstrap & FontAwesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- Fonts & Particles -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 
 
 
 
   <style>
-    canvas {
-      font-family: 'Fira Code', monospace !important;
-    }
-
-    .page h3 {
-      font-weight: bold;
-    }
-
-    .page p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .page .btn-outline-light {
-      font-size: 1.2rem;
-      padding: 10px 14px;
-      border-radius: 50%;
-      transition: transform 0.2s;
-    }
-
-    .page .btn-outline-light:hover {
-      transform: scale(1.1);
-      background-color: #00faff;
-      color: #000;
-    }
-
-    nav.header-main ul li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 40px;
-      /* space between items */
-    }
-
-    nav.header-main ul li a {
-      font-size: 28px;
-      /* icon size */
-      color: #1e90ff;
-      /* or your preferred color */
-    }
-
-    nav.header-main ul li h6 {
-      font-size: 16px;
-      /* text size */
-      margin-top: 10px;
-      color: white;
-    }
-
     html,
     body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: sans-serif;
+      scroll-behavior: smooth;
+      font-family: 'Fira Code', monospace;
       background-color: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
     }
 
-    .pt-home {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    #home {
+      position: relative;
       background-image: url('img/bg.jpg');
       background-size: cover;
       background-position: center;
-      z-index: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
+    }
+
+    #home::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #0a0a0a 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    #home>div {
+      position: relative;
+      z-index: 3;
+      text-align: center;
     }
 
     #particles-js {
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      z-index: 1;
     }
 
-    .pt-home section {
+    canvas {
+      display: block;
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
       z-index: 1;
-      position: relative;
-      text-align: center;
-      color: white;
+      pointer-events: none;
     }
 
     #typed-text-wrapper {
-      display: inline-block;
-      position: relative;
       font-size: 1.5rem;
+      position: relative;
     }
 
     #typed-text-wrapper::after {
@@ -152,148 +129,251 @@
       font-size: 1.5rem;
     }
 
-    .page {
-      position: fixed;
+    img.rounded-circle {
+      max-width: 250px;
+    }
+
+    /* Absolute canvas should never create a scrollbar */
+    canvas {
+      position: fixed !important;
       top: 0;
-      left: 100%;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(10, 10, 10, 0.97);
-      color: white;
-      overflow-y: auto;
-      z-index: 2;
-      transition: left 0.5s ease;
-    }
-
-    .page.active {
       left: 0;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden !important;
     }
 
-    nav.header-main {
-      width: 200px;
-      background-color: rgba(10, 10, 10, 0.75);
-      backdrop-filter: blur(6px);
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 3;
+    /* Prevent internal scrollable containers */
+    #particles-js {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      overflow: hidden !important;
     }
 
-    nav.header-main .logo img {
-      width: 250px;
-      height: auto;
-      margin: 20px auto;
-      display: block;
+    body {
+      overflow: hidden;
     }
 
-
-    nav.header-main ul {
-      padding-top: 5px;
+    #main-scroll {
+      overflow-y: auto;
+      height: 100vh;
+      scroll-behavior: smooth;
     }
 
-    nav.header-main ul li {
-      margin-bottom: 50px;
-      /* Increased spacing */
-    }
-
-    nav.header-main ul li a,
-    nav.header-main ul h6 {
-      transition: all 0.3s ease;
-      display: block;
-      text-align: center;
-    }
-
-    nav.header-main ul li a:hover {
-      transform: scale(1.2);
-      color: #00faff;
-    }
-
-    nav.header-main ul h6 {
-      font-size: 0.8rem;
-      margin-top: 5px;
-      color: white;
-      /* Matched name text */
-    }
-
-    nav.header-main ul h6:hover {
-      transform: translateX(4px);
-      color: #00faff;
-    }
-
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 12px;
-    }
-
-    .photo img {
-      border-radius: 16px;
-      max-width: 100%;
-    }
-
-    .header-mobile h2 {
-      display: none;
-    }
-
-    .back-btn {
-      position: absolute;
-      top: 20px;
-      left: 220px;
-      /* Sidebar width (200px) + some padding */
+    #resume,
+    #resume * {
+      position: relative;
       z-index: 5;
+    }
+
+    #projects,
+    #projects * {
+      position: relative;
+      z-index: 5;
+    }
+
+
+    /* Side Bar Style*/
+
+    #sidebar-nav {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      z-index: 100;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    #sidebar-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #sidebar-nav li {
+      margin: 14px 0;
+    }
+
+    #sidebar-nav a {
+      display: block;
+      color: #888;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 25px;
+      /* ← increased from 16px */
+      transform: scale(1);
+      transition:
+        transform 0.15s ease-out,
+        color 0.2s ease;
+      transform-origin: left center;
+    }
+
+    /* sidebar css end */
+
+    /* project css*/
+    /* Container for all cards */
+    /* Grid Container */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+
+
+
+    /* Individual Card */
+    .project-card {
+      position: relative;
+      cursor: pointer;
+      border-radius: 12px;
+      background-color: #111;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transform: scale(1);
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      overflow: hidden;
+      display: block;
+      height: auto !important;
+      max-height: none !important;
+      flex-shrink: 1;
+      align-self: flex-start;
+      padding: 12px;
+    }
+
+    /* Project Image */
+    .project-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px 12px 0 0;
+    }
+
+    /* Hidden by default */
+    .project-details {
       display: none;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-top: 1px solid #333;
+      color: white;
+      animation: fadeIn 0.3s ease-in-out;
     }
 
-    .page.active .back-btn {
-      display: inline-block;
+    /* Show details when active */
+    .project-card.active .project-details {
+      display: block;
     }
 
-    .about-social .btn-outline-light {
+    /* Zoom and glow on focus */
+    .project-card.active {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 250, 255, 0.25);
+      z-index: 10;
+    }
+
+    /* Dim all others */
+    .project-card.dimmed {
+      opacity: 0.6;
+      filter: blur(0.5px);
+      transform: scale(0.98);
+      z-index: 0;
+    }
+
+    /* GitHub button */
+    .project-details .btn {
+      margin-top: 10px;
+      border-radius: 6px;
+      padding: 6px 16px;
+    }
+
+    /* Fade animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* project css end */
+
+    /* back to top button */
+    #backToTop {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      display: none;
+      z-index: 1000;
+      background-color: #00faff;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 50%;
       width: 50px;
       height: 50px;
-      padding: 0;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0, 250, 255, 0.5);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #backToTop:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 16px rgba(0, 250, 255, 0.8);
+    }
+
+    /* Animate in like AOS fade-up */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUpIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeUpIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* back to top button end */
+
+    @media (max-width: 768px) {
+      #sidebar-nav {
+        display: none;
+      }
     }
   </style>
 </head>
 
+
 <body>
 
-  <!-- Navigation -->
-  <div class="header-mobile">
-    <a class="header-toggle"><i class="fas fa-bars"></i></a>
-  </div>
-
-  <nav class="header-main" data-simplebar>
-    <div class="logo">
-      <img src="img/logo.png" alt="Shiven" />
-    </div>
+  <nav id="sidebar-nav">
     <ul>
-      <li><a href="#" data-target="home" class="icon-h fas fa-home"></a>
-        <h6>Home</h6>
-      </li>
-      <li><a href="#" data-target="about" class="icon-a fas fa-user-tie"></a>
-        <h6>About</h6>
-      </li>
-      <li><a href="#" data-target="resume" class="icon-r fas fa-address-book"></a>
-        <h6>Resume</h6>
-      </li>
-      <li><a href="#" data-target="projects" class="icon-p fas fa-code"></a>
-        <h6>Projects</h6>
-      </li>
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#resume" class="nav-link">Resume</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
     </ul>
-    <div class="footer">
-      <p>© 2025 Shiven Jaiswal</p>
-    </div>
   </nav>
 
   <!-- Home Section -->
-  <div class="pt-home" id="home">
+  <section id="home">
     <div id="particles-js"></div>
-    <section>
+    <div>
       <h1>Shiven Jaiswal</h1>
       <p>
         <span id="typed-text-wrapper">
@@ -307,188 +387,246 @@
           <li><a href="https://github.com/06Shiven" target="_blank"><i class="fab fa-github"></i></a></li>
         </ul>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <!-- About Section -->
-  <div class="page" id="about">
-    <section class="container py-5">
-      <button class="btn btn-dark back-btn"><i class="fas fa-arrow-left"></i> Back</button>
-      <div class="row align-items-center">
-        <div class="col-md-4 text-center">
-          <img src="img/shiven-pfp.jpg" alt="Shiven Jaiswal" class="rounded-circle img-fluid"
-            style="max-width: 250px;" />
-        </div>
-        <div class="col-md-8">
-          <h3>Shiven Jaiswal</h3>
-          <p><i class="fas fa-map-marker-alt text-primary"></i> Toronto, Canada</p>
-          <p>
-            I’m a 19-year-old engineering student specialising in backend systems, robotics algorithms, and applied AI.
-            I served as Team Captain of <strong>Brampton Robotics Team 11400X</strong> and as a programmer for
-            <strong>Team 1104X</strong>. I developed odometry-based navigation systems to enable high-precision
-            autonomous routines during competitions. I also designed and tuned custom PID controllers for drive control,
-            arm mechanisms, and trajectory following, optimising performance across a range of dynamic environments.
-          </p>
-          <p>
-            My leadership involved architecting modular subsystems, writing efficient autonomous logic, and mentoring
-            team members through iterative design, system debugging, and match-day strategy. This contributed to four
-            VEX Worlds Finals qualifications and consistent top-tier provincial performance.
-          </p>
-          <p>
-            I also interned at <strong>MR. STUDIOS</strong>, where I worked on backend automation tools, built
-            CRM-integrated real estate landing pages, and deployed asynchronous scripts to streamline internal marketing
-            workflows.
-          </p>
-          <p>
-            <strong>Current:</strong> Building reinforcement learning agents, embedded AI platforms, and scalable
-            backend systems. I’m driven by a passion for intelligent automation, control theory, and human-AI
-            interaction.
-          </p>
-          <p>
-            Reach out to me at <a href="mailto:Shivenjaiswal02@gmail.com"
-              class="text-info">Shivenjaiswal02@gmail.com</a>
-          </p>
-          <div class="mt-4 about-social d-flex flex-row">
-            <a href="https://www.linkedin.com/in/shiven-jaiswal/" target="_blank" class="btn btn-outline-light me-2">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/06Shiven" target="_blank" class="btn btn-outline-light me-2">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-
-
-        </div>
-      </div>
-    </section>
-  </div>
-
-
+  <section id="about" data-aos="fade-up" data-aos-offset="500">
+    <img src="img/shiven-pfp.jpg" alt="Shiven Jaiswal" class="rounded-circle mb-4" />
+    <h2>About Me</h2>
+    <div class="container">
+      <p>I’m a 19-year-old engineering student specialising in backend systems, robotics algorithms, and applied AI. I
+        served as Team Captain of <strong>Brampton Robotics Team 11400X</strong> and as a programmer for <strong>Team
+          1104X</strong>. I developed odometry-based navigation systems to enable high-precision autonomous routines
+        during competitions. I also designed and tuned custom PID controllers for drive control, arm mechanisms, and
+        trajectory following, optimising performance across a range of dynamic environments.</p>
+      <p>My leadership involved architecting modular subsystems, writing efficient autonomous logic, and mentoring team
+        members through iterative design, system debugging, and match-day strategy. This contributed to four VEX Worlds
+        Finals qualifications and consistent top-tier provincial performance.</p>
+      <p>I also interned at <strong>MR. STUDIOS</strong>, where I worked on backend automation tools, built
+        CRM-integrated real estate landing pages, and deployed asynchronous scripts to streamline internal marketing
+        workflows.</p>
+      <p><strong>Current:</strong> Building reinforcement learning agents, embedded AI platforms, and scalable backend
+        systems. I’m driven by a passion for intelligent automation, control theory, and human-AI interaction.</p>
+    </div>
+  </section>
 
   <!-- Resume Section -->
-  <div class="page" id="resume">
-    <section class="container py-5">
-      <button class="btn btn-dark back-btn"><i class="fas fa-arrow-left"></i> Back</button>
-      <h2>Resume</h2>
+  <section id="resume">
+    <div class="resume-page timeline-item" data-aos="fade-up" data-aos-offset="150">
+      <h5 class="text-info">2024 – Present</h5>
+      <h2>Undergraduate Engineering – Toronto Metropolitan University</h2>
+      <p>Currently pursuing a Bachelor of Engineering in Mechatronics. Focused on robotics, control systems, and AI
+        integration.</p>
+    </div>
 
-      <div class="my-4 text-center">
-        <a href="resume/Shiven_Jaiswal_Resume.pdf" download class="btn btn-outline-info btn-lg">
-          <i class="fas fa-download me-2"></i> Download Resume
-        </a>
-      </div>
+    <div class="resume-page timeline-item" data-aos="fade-up" data-aos-offset="150">
+      <h5 class="text-info">2019 – 2024</h5>
+      <h2>Team Captain – Brampton Robotics</h2>
+      <p>Led VEX teams 11400X and 1104X through 4 World Finalist appearances. Built autonomous navigation and PID
+        systems.</p>
+    </div>
 
-      <div class="text-center">
-        <img src="resume/resume-image.jpg" alt="Shiven Jaiswal Resume" class="img-fluid rounded"
-          style="max-width: 80%; height: auto;" />
-      </div>
-    </section>
-  </div>
+    <div class="resume-page timeline-item" data-aos="fade-up" data-aos-offset="150">
+      <h5 class="text-info">2023</h5>
+      <h2>Backend Intern – MR. STUDIOS</h2>
+      <p>Automated real estate pipelines with CRM integration. Developed backend scripts to streamline client onboarding
+        and marketing flows.</p>
+    </div>
+
+    <div class="resume-page timeline-item" data-aos="fade-up" data-aos-offset="150">
+      <h5 class="text-info">2020 – Present</h5>
+      <h2>Freelance Developer</h2>
+      <p>Built AI-powered desktop tools, Python-based game engines, and secure management apps with strong UI/UX
+        principles.</p>
+    </div>
+
+    <div class="resume-page text-center" data-aos="fade-up" data-aos-offset="150">
+      <a href="resume/Shiven_Jaiswal_Resume.pdf" download="Shiven_Jaiswal_Resume.pdf" class="btn btn-outline-info">
+        <i class="fas fa-download"></i> Download Full Resume
+      </a>
+    </div>
+  </section>
+
+  <style>
+    #resume {
+      width: 100%;
+      padding: 100px 20px;
+    }
+
+    .resume-page {
+      max-width: 900px;
+      margin: 0 auto 80px auto;
+      padding-left: 30px;
+      border-left: 3px solid #00faff;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 20px;
+      width: 16px;
+      height: 16px;
+      background-color: #00faff;
+      border-radius: 50%;
+    }
+  </style>
+
+
+
+
 
 
   <!-- Projects Section -->
-  <div class="page" id="projects">
-    <section class="container py-5">
-      <button class="btn btn-dark back-btn"><i class="fas fa-arrow-left"></i> Back</button>
-      <h2 class="mb-4">Projects</h2>
-
-      <div class="row">
-        <!-- Project Card 1 -->
-        <div class="col-md-6 mb-4">
-          <div class="card bg-dark text-white h-100">
-            <img src="img/jarvis.png" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-              <h5 class="card-title">J.A.R.V.I.S</h5>
-              <p class="card-text">J.A.R.V.I.S is a desktop-based virtual assistant built with Python. It features voice
-                recognition, text-to-speech, task automation, and a dynamic visual interface with waveform animations.
-                The assistant can perform actions such as telling the time, launching applications, conducting web
-                searches, and more. Designed to explore the integration of speech and automation in user interfaces.</p>
-              <a href="https://github.com/06Shiven/J.A.R.V.I.S" target="_blank" class="btn btn-outline-light">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
+  <section id="projects" data-aos="fade-up" data-aos-offset="300">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <!-- Project Card Template -->
+      <div class="project-card" onclick="toggleCard(this)">
+        <img src="img/jarvis.png" alt="JARVIS" class="project-img">
+        <div class="project-details">
+          <h5>J.A.R.V.I.S</h5>
+          <p>Desktop virtual assistant with voice commands and animated interface.</p>
+          <a href="https://github.com/06Shiven/J.A.R.V.I.S" target="_blank" class="btn btn-outline-light">GitHub</a>
         </div>
-
-        <!-- Project Card 2 -->
-        <div class="col-md-6 mb-4">
-          <div class="card bg-dark text-white h-100">
-            <img src="img/DeepLearnAI.gif" alt="Project Demo" class="img-fluid rounded">
-            <div class="card-body">
-              <h5 class="card-title">Q-learning-Maze-Solver</h5>
-              <p class="card-text">A real‑time Q‑learning maze solver built with Python and Pygame. Generate perfect
-                mazes of any size, train multiple agents to find optimal paths, and visualize their learning with an
-                interactive GUI.</p>
-              <a href="https://github.com/06Shiven/Q-learning-Maze-Solver" target="_blank"
-                class="btn btn-outline-light">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project Card 3 -->
-        <div class="col-md-6 mb-4">
-          <div class="card bg-dark text-white h-100">
-            <img src="img/File Manager.png" alt="Project Demo" class="img-fluid rounded">
-            <div class="card-body">
-              <h5 class="card-title">File Manager</h5>
-              <p class="card-text">A secure, dark-themed form management tool for organizing and protecting PDFs, Excel
-                files, and other documents — featuring password lock, search, categorization, and full .exe support.</p>
-              <a href="https://github.com/06Shiven/File-Manager" target="_blank" class="btn btn-outline-light">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project Card 4 -->
-        <div class="col-md-6 mb-4">
-          <div class="card bg-dark text-white h-100">
-            <img src="img/DiceRoller.png" alt="Project Demo" class="img-fluid rounded">
-            <div class="card-body">
-              <h5 class="card-title">Dice Roll Predictor AI</h5>
-              <p class="card-text">A Python-based experimental application that simulates and attempts to predict dice rolls 
-                in a system governed by randomness. While true dice outcomes are unpredictable, the project showcases how 
-                machine learning algorithms respond to noisy, non-deterministic data. The tool records each roll, analyzes 
-                frequency distributions, and dynamically updates its prediction strategy based on historical patterns—even 
-                when no real pattern exists. It serves as an educational exploration of probability, randomness, and the 
-                behavior of AI when faced with inherently unpredictable inputs. The program features a GUI, real-time 
-                logging, and data storage using JSON.</p>
-              <a href="https://github.com/06Shiven/Dice-Roll-Predictor" target="_blank" class="btn btn-outline-light">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project Card 5 -->
-        <div class="col-md-6 mb-4">
-          <div class="card bg-dark text-white h-100">
-            <img src="img/flappybird.gif" alt="Project Demo" class="img-fluid rounded">
-            <div class="card-body">
-              <h5 class="card-title">FlappyBirdNEAT-AI</h5>
-              <p class="card-text">A self-learning Flappy Bird AI built with Python, Pygame, and NEAT. The AI evolves
-                over time through neuroevolution, improving its gameplay with each generation while retaining memory
-                across sessions.</p>
-              <a href="https://github.com/06Shiven/FlappyBirdNEAT-AI" target="_blank" class="btn btn-outline-light">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add more project cards as needed -->
-
       </div>
-    </section>
-  </div>
+
+      <div class="project-card" onclick="toggleCard(this)">
+        <img src="img/DeepLearnAI.gif" alt="Q-learning-Maze-Solver" class="project-img">
+        <div class="project-details">
+          <h5>Q-learning-Maze-Solver</h5>
+          <p>Real-time Q-learning AI that solves dynamically generated mazes using Python and Pygame.</p>
+          <a href="https://github.com/06Shiven/Q-learning-Maze-Solver" target="_blank" class="btn btn-outline-light">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleCard(this)">
+        <img src="img/File Manager.png" alt="File Manager" class="project-img">
+        <div class="project-details">
+          <h5>File Manager</h5>
+          <p>A desktop document organizer with secure password locking, search, and file categorization.</p>
+          <a href="https://github.com/06Shiven/File-Manager" target="_blank" class="btn btn-outline-light">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleCard(this)">
+        <img src="img/DiceRoller.png" alt="Dice Roll Predictor AI" class="project-img">
+        <div class="project-details">
+          <h5>Dice Roll Predictor AI</h5>
+          <p>Simulates and analyzes random dice rolls using predictive modeling and JSON logging.</p>
+          <a href="https://github.com/06Shiven/Dice-Roll-Predictor" target="_blank" class="btn btn-outline-light">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleCard(this)">
+        <img src="img/flappybird.gif" alt="FlappyBirdNEAT-AI" class="project-img">
+        <div class="project-details">
+          <h5>FlappyBirdNEAT-AI</h5>
+          <p>AI that learns to play Flappy Bird via neuroevolution (NEAT algorithm) with memory retention.</p>
+          <a href="https://github.com/06Shiven/FlappyBirdNEAT-AI" target="_blank" class="btn btn-outline-light">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 360px;
+      background: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    }
+
+    .project-card.active {
+      transform: scale(1.3);
+      box-shadow: 0 0 30px rgba(0, 250, 255, 0.25);
+      z-index: 10;
+    }
+
+    .project-card.dimmed {
+      opacity: 0.3;
+      transform: scale(0.9) translateY(20px);
+      z-index: 0;
+    }
+
+    .project-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px 12px 0 0;
+      padding: 12px;
+    }
+
+    .project-details {
+      display: none;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-top: 1px solid #333;
+      color: white;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .project-card.active .project-details {
+      display: block;
+    }
+
+    .project-details .btn {
+      margin-top: 10px;
+      border-radius: 6px;
+      padding: 6px 16px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 
 
-  <!-- Scripts -->
+
+
+  <!-- JS Scripts -->
   <script src="js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.21/bundled/lenis.min.js">
+
+  </script>
 
   <script>
-    // Particles.js
+      AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true,
+        easing: 'ease-in-out',
+        anchorPlacement: 'top-bottom'
+      });
+
+     // Particles.js
     tsParticles.load("particles-js", {
       particles: {
         number: {value: 120, density: {enable: true, value_area: 600}},
@@ -496,7 +634,7 @@
         shape: {
           type: "char",
           character: {
-            value: ["{", "}", "(", ")", ";", "=", ">", "+", "-", "*", "/", "int", "if", "else", "return", "for", "while", "def", "class", "=>", "//"],
+            value: ["{", "}", "(", ")", ";", "=", ">", "+", "-", "*", "/", "int", "if", "else", "return"],
             font: "Fira Code",
             style: "",
             weight: "400"
@@ -504,39 +642,23 @@
         },
         opacity: {value: 0.6, random: true},
         size: {value: 14, random: true},
-        move: {
-          enable: true,
-          speed: 2,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false
-        },
+        move: {enable: true, speed: 2},
         line_linked: {enable: false}
       },
       interactivity: {
         detect_on: "canvas",
-        events: {
-          onhover: {enable: true, mode: "repulse"},
-          resize: true
-        },
-        modes: {
-          repulse: {distance: 100, duration: 0.4}
-        }
+        events: {onhover: {enable: true, mode: "repulse"}, resize: true},
+        modes: {repulse: {distance: 100, duration: 0.4}}
       },
       retina_detect: true
     });
 
-
-    // Typed.js
-    var typed = new Typed("#typed-text", {
+    new Typed("#typed-text", {
       strings: [
         "Web & AI Developer",
         "Engineering Student",
         "Robotics Enthusiast",
         "Systems Builder",
-        "Automation Enthusiast",
         "Backend Developer"
       ],
       typeSpeed: 60,
@@ -546,32 +668,113 @@
       showCursor: false
     });
 
-    // Navigation Logic
-    const links = document.querySelectorAll('[data-target]');
-    const pages = document.querySelectorAll('.page');
-    const backButtons = document.querySelectorAll('.back-btn');
-
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = link.getAttribute('data-target');
-        pages.forEach(p => p.classList.remove('active'));
-        if (target !== 'home') {
-          document.getElementById(target).classList.add('active');
-          document.body.style.overflow = 'auto';
-        } else {
-          document.body.style.overflow = 'hidden';
-        }
-      });
+    const lenis = new Lenis({
+      duration: 3,     // slower scroll duration //changed from 1.2 to 2.5
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smoother easing
+      smooth: true
     });
 
-    backButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        pages.forEach(p => p.classList.remove('active'));
-        document.body.style.overflow = 'hidden';
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+  </script>
+
+  <!-- Back to Top Button -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const backToTopBtn = document.getElementById("backToTop");
+      let isVisible = false;
+
+      // Scroll trigger
+      window.addEventListener("scroll", () => {
+        const shouldShow = window.scrollY > window.innerHeight / 2;
+
+        if (shouldShow && !isVisible) {
+          backToTopBtn.style.display = "block";
+          backToTopBtn.classList.remove("fade-in-up"); // reset animation
+          void backToTopBtn.offsetWidth; // force reflow
+          backToTopBtn.classList.add("fade-in-up");
+          isVisible = true;
+        } else if (!shouldShow && isVisible) {
+          backToTopBtn.style.display = "none";
+          isVisible = false;
+        }
+      });
+
+      // Smooth scroll to top
+      backToTopBtn.addEventListener("click", () => {
+        lenis.scrollTo(0, { duration: 1.2, easing: (t) => t });
       });
     });
   </script>
+
+
+
+
+  <!-- Javascript Sidebar Start Script -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("#sidebar-nav a");
+
+
+    function updateSidebarScale() {
+      const centerY = window.innerHeight / 2;
+
+      sections.forEach((section, i) => {
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+
+        // Distance from viewport center
+        const distance = Math.abs(centerY - sectionCenter);
+
+        // Convert distance into scale (closer = larger)
+        let scale = Math.max(1, 2 - distance / centerY); // max 2x, min 1x
+        scale = Math.min(scale, 2); // cap at 2x
+
+        // Apply scaling to corresponding sidebar link
+        navLinks[i].style.transform = `scale(${scale})`;
+
+        // Optional: change color when closest
+        navLinks[i].style.color = scale > 1.5 ? "#00faff" : "#888";
+        navLinks[i].style.fontWeight = scale > 1.3 ? "900" : "bold";
+      });
+    }
+
+    window.addEventListener("scroll", updateSidebarScale);
+    window.addEventListener("load", updateSidebarScale);
+  </script>
+
+  <!-- Javascript Sidebar End Script -->
+  <script>
+    function toggleCard(card) {
+      const allCards = document.querySelectorAll('.project-card');
+
+      // If clicked card is already active, close it
+      if (card.classList.contains('active')) {
+        card.classList.remove('active');
+        allCards.forEach(c => c.classList.remove('dimmed'));
+        return;
+      }
+
+      // Reset all cards
+      allCards.forEach(c => {
+        c.classList.remove('active');
+        c.classList.add('dimmed');
+      });
+
+      // Activate clicked card
+      card.classList.add('active');
+      card.classList.remove('dimmed');
+    }
+  </script>
+  <button id="backToTop">↑</button>
+
+
+
+
 </body>
 
 </html>
